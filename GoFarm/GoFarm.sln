@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoFarm", "GoFarm\GoFarm.csproj", "{03F6977A-0A6E-4B08-BB21-801BB0E5B4AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoFarm", "GoFarm\GoFarm.csproj", "{03F6977A-0A6E-4B08-BB21-801BB0E5B4AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoFarm.DataAccess", "GoFarm.DataAccess\GoFarm.DataAccess.csproj", "{4805CA76-F2A3-4048-8994-85E6A6F5E647}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoFarm.Models", "GoFarm.Models\GoFarm.Models.csproj", "{E8E006C0-5065-445E-B412-CDE3FD811FE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoFarm.Utility", "GoFarm.Utility\GoFarm.Utility.csproj", "{0C2C5A1F-3DB3-434C-A51B-890ED0AA56FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{03F6977A-0A6E-4B08-BB21-801BB0E5B4AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03F6977A-0A6E-4B08-BB21-801BB0E5B4AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03F6977A-0A6E-4B08-BB21-801BB0E5B4AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4805CA76-F2A3-4048-8994-85E6A6F5E647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4805CA76-F2A3-4048-8994-85E6A6F5E647}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4805CA76-F2A3-4048-8994-85E6A6F5E647}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4805CA76-F2A3-4048-8994-85E6A6F5E647}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8E006C0-5065-445E-B412-CDE3FD811FE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8E006C0-5065-445E-B412-CDE3FD811FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8E006C0-5065-445E-B412-CDE3FD811FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8E006C0-5065-445E-B412-CDE3FD811FE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C2C5A1F-3DB3-434C-A51B-890ED0AA56FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C2C5A1F-3DB3-434C-A51B-890ED0AA56FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C2C5A1F-3DB3-434C-A51B-890ED0AA56FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C2C5A1F-3DB3-434C-A51B-890ED0AA56FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
