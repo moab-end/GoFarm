@@ -12,6 +12,8 @@ using GoFarm.DataAccess.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using GoFarm.DataAccess.Data.Repository.IRepository;
+using GoFarm.DataAccess.Data.Repository;
 
 namespace GoFarm
 {
@@ -30,10 +32,17 @@ namespace GoFarm
 			services.AddDbContext<ApplicationDbContext>(options =>
 				options.UseSqlServer(
 					Configuration.GetConnectionString("DefaultConnection")));
-			services.AddDefaultIdentity<IdentityUser>()
-				.AddEntityFrameworkStores<ApplicationDbContext>();
-			services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+			services.AddIdentity<IdentityUser,IdentityRole>()
+				.AddEntityFrameworkStores<ApplicationDbContext>()
+				.AddDefaultTokenProviders()
+				.AddDefaultUI();
+
+			services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+			services.AddControllersWithViews().AddNewtonsoftJson().AddRazorRuntimeCompilation();
 			services.AddRazorPages();
+			
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
