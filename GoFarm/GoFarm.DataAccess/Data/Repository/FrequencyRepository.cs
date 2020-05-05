@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace GoFarm.DataAccess.Data.Repository
 {
@@ -18,7 +18,13 @@ namespace GoFarm.DataAccess.Data.Repository
 		}
 		public IEnumerable<SelectListItem> GetFrequencyListForDropDown()
 		{
-			throw new NotImplementedException();
+			return _db.Frequency.Select(i => new SelectListItem()
+			{
+
+				Text = i.Name,
+				Value = i.Id.ToString()
+
+			});
 		}
 
 		public void Update(Frequency frequency)

@@ -28,4 +28,10 @@
     <ProjectReference Include="..\GoFarm.DataAccess\GoFarm.DataAccess.csproj" />
   </ItemGroup>
 
+ 
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\services\" />
+  </ItemGroup>
+
 </Project>

@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace GoFarm.DataAccess.Data.Repository.IRepository
 {
-	public interface ICategoryRepository : IRepository<Category>
+	public interface IServiceRepository : IRepository<Service>
 	{
-		IEnumerable<SelectListItem> GetCategoryListForDropDown();
+	
 
-		void Update(Category category);
+		void Update(Service service);
 	}
 }

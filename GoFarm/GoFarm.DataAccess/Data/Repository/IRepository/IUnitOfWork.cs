@@ -9,6 +9,8 @@ namespace GoFarm.DataAccess.Data.Repository.IRepository
 		public ICategoryRepository Category { get; }
 
 		public IFrequencyRepository Frequency { get; }
-		void Save();
+
+		public IServiceRepository Service { get; }
+	void Save();
 	}
 }
