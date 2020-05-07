@@ -8,6 +8,9 @@ using Microsoft.Extensions.Logging;
 using GoFarm.Models;
 using GoFarm.Models.ViewModels;
 using GoFarm.DataAccess.Data.Repository.IRepository;
+using Microsoft.AspNetCore.Http;
+using GoFarm.Utility;
+using GoFarm.Extensions;
 
 namespace GoFarm.Controllers
 {
@@ -37,6 +40,35 @@ namespace GoFarm.Controllers
 			};
 
 			return View(HomeVM);
+		}
+
+		public IActionResult Details(int Id)
+		{
+			var objFromDb = _unitOfWork.Service.GetFirstOrDefault(includeProperties: "Category,Frequency",filter:c=>c.Id==Id);
+
+			return View(objFromDb);
+		}
+
+		public IActionResult AddToCart(int serviceId)
+		{
+			List<int> sessionList = new List<int>();
+
+			if (string.IsNullOrEmpty(HttpContext.Session.GetString(SD.SessionCart)))
+			{
+				sessionList.Add(serviceId);
+				HttpContext.Session.SetObject(SD.SessionCart, sessionList);
+			}
+			else
+			{
+				sessionList = HttpContext.Session.GetObject<List<int>>(SD.SessionCart);
+				if (!sessionList.Contains(serviceId))
+				{
+					sessionList.Add(serviceId);
+					HttpContext.Session.SetObject(SD.SessionCart,sessionList);
+				}
+			}
+
+			return RedirectToAction(nameof(Index));
 		}
 
 		public IActionResult Privacy()

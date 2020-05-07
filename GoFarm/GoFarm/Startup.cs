@@ -38,7 +38,15 @@ namespace GoFarm
 				.AddDefaultTokenProviders()
 				.AddDefaultUI();
 
+
+
 			services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+			services.AddSession(options => {
+				options.IdleTimeout = TimeSpan.FromMinutes(30);
+				options.Cookie.HttpOnly = true;
+				options.Cookie.IsEssential = true;
+			});
 
 			services.AddControllersWithViews().AddNewtonsoftJson().AddRazorRuntimeCompilation();
 			services.AddRazorPages();
@@ -63,6 +71,8 @@ namespace GoFarm
 			app.UseStaticFiles();
 
 			app.UseRouting();
+
+			app.UseSession();
 
 			app.UseAuthentication();
 			app.UseAuthorization();
