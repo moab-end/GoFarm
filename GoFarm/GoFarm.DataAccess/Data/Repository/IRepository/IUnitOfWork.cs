@@ -11,6 +11,8 @@ namespace GoFarm.DataAccess.Data.Repository.IRepository
 		public IFrequencyRepository Frequency { get; }
 
 		public IServiceRepository Service { get; }
-	void Save();
+		public IOrderHeaderRepository OrderHeader { get; }
+		public IOrderDetailsRepository OrderDetails { get; }
+		void Save();
 	}
 }
