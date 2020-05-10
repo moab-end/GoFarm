@@ -46,7 +46,7 @@
 						@if (item.LockoutEnd == null || item.LockoutEnd < DateTime.Now)
 						{
 
-							<a class="btn btn-success text-white" asp-action="Lock" style="width:50px; asp-route-id="@item.Id">
+							<a class="btn btn-success text-white" asp-action="Lock" style="width:50px"; asp-route-id="@item.Id">
 								<i class="fas fa-lock-open"></i>
 							</a>
 						}

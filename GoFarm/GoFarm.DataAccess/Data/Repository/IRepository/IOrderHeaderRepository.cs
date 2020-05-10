@@ -9,5 +9,6 @@ namespace GoFarm.DataAccess.Data.Repository.IRepository
 {
 	public interface IOrderHeaderRepository : IRepository<OrderHeader>
 	{
+		public void ChangeOrderStatus(int orderHeaderId, string status);
 	}
 }
