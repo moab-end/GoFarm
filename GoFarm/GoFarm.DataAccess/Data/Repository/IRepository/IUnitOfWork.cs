@@ -13,6 +13,9 @@ namespace GoFarm.DataAccess.Data.Repository.IRepository
 		public IServiceRepository Service { get; }
 		public IOrderHeaderRepository OrderHeader { get; }
 		public IOrderDetailsRepository OrderDetails { get; }
+		public IUserRepository User { get; }
+
+
 		void Save();
 	}
 }

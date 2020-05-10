@@ -17,6 +17,7 @@ namespace GoFarm.DataAccess.Data.Repository
 			Service = new ServiceRepository(_db);
 			OrderHeader = new OrderHeaderRepository(_db);
 			OrderDetails = new OrderDetailsRepository(_db);
+			User = new UserRepository(_db);
 
 
 		}
@@ -28,6 +29,7 @@ namespace GoFarm.DataAccess.Data.Repository
 
 		public IOrderHeaderRepository OrderHeader { get; private set; }
 		public IOrderDetailsRepository OrderDetails { get; private set; }
+		public IUserRepository User { get; private set; }
 
 		public void Dispose()
 		{
