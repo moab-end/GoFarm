@@ -15,6 +15,8 @@ namespace GoFarm.DataAccess.Data.Repository.IRepository
 		public IOrderDetailsRepository OrderDetails { get; }
 		public IUserRepository User { get; }
 
+		ISP_Call SP_Call { get; }
+
 
 		void Save();
 	}

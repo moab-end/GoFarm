@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using GoFarm.DataAccess.Data.Repository.IRepository;
 using GoFarm.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GoFarm.Areas.Admin.Controllers
 {
+    [Authorize]
     [Area("Admin")]
     public class FrequencyController : Controller
     {

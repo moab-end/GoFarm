@@ -4,10 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using GoFarm.DataAccess.Data.Repository.IRepository;
 using GoFarm.Models;
+using GoFarm.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GoFarm.Areas.Admin.Controllers
 {
+    [Authorize]
     [Area("Admin")]
     public class CategoryController : Controller
     {
@@ -71,7 +74,10 @@ namespace GoFarm.Areas.Admin.Controllers
         public IActionResult GetAll()
         {
 
-            return Json(new { data= _unitOfWork.Category.GetAll() });
+            //return Json(new { data= _unitOfWork.Category.GetAll() });
+
+            return Json(new { data = _unitOfWork.SP_Call.ReturnList<Category>(SD.usp_GetAllCategory,null)});
+
         }
 
         [HttpDelete]

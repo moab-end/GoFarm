@@ -18,7 +18,7 @@ using Microsoft.Extensions.Logging;
 
 namespace GoFarm.Areas.Identity.Pages.Account
 {
-    [AllowAnonymous]
+    [Authorize]
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<IdentityUser> _signInManager;
@@ -100,6 +100,7 @@ namespace GoFarm.Areas.Identity.Pages.Account
 
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
+
                 if (result.Succeeded)
                 {
 
@@ -109,6 +110,7 @@ namespace GoFarm.Areas.Identity.Pages.Account
                         //creating admin and manager role
                         await _roleManager.CreateAsync(new IdentityRole(SD.Admin));
                         await _roleManager.CreateAsync(new IdentityRole(SD.Manager));
+                        await _roleManager.CreateAsync(new IdentityRole(SD.Customer));
                     }
 
                     //getting checkbox value from our form

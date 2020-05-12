@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using GoFarm.DataAccess.Data.Repository.IRepository;
 using GoFarm.Models.ViewModels;
 using GoFarm.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GoFarm.Areas.Admin.Controllers
 {
+    [Authorize]
     [Area("Admin")]
     public class OrderController : Controller
     {

@@ -4,11 +4,14 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using GoFarm.DataAccess.Data.Repository.IRepository;
+using GoFarm.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GoFarm.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Admin)]
     public class UserController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
