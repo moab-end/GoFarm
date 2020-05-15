@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using GoFarm.DataAccess.Data.Repository.IRepository;
 using GoFarm.DataAccess.Data.Repository;
+using GoFarm.DataAccess.Data.Initializer;
 
 namespace GoFarm
 {
@@ -41,6 +42,7 @@ namespace GoFarm
 
 
 			services.AddScoped<IUnitOfWork, UnitOfWork>();
+			services.AddScoped<IDbInitializer, DbInitializer>();
 
 			services.AddSession(options => {
 				options.IdleTimeout = TimeSpan.FromMinutes(30);
@@ -54,7 +56,7 @@ namespace GoFarm
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+		public void Configure(IApplicationBuilder app, IWebHostEnvironment env,IDbInitializer dbInit)
 		{
 			if (env.IsDevelopment())
 			{
@@ -71,6 +73,8 @@ namespace GoFarm
 			app.UseStaticFiles();
 
 			app.UseRouting();
+
+			dbInit.Initialize();
 
 			app.UseSession();
 

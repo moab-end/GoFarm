@@ -104,14 +104,8 @@ namespace GoFarm.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
 
-                    //checking if role exist, if it does not we create roles
-                    if(!await _roleManager.RoleExistsAsync(SD.Admin))
-                    {
-                        //creating admin and manager role
-                        await _roleManager.CreateAsync(new IdentityRole(SD.Admin));
-                        await _roleManager.CreateAsync(new IdentityRole(SD.Manager));
-                        await _roleManager.CreateAsync(new IdentityRole(SD.Customer));
-                    }
+                   
+                 
 
                     //getting checkbox value from our form
                     string role = Request.Form["rdUserRole"].ToString();
